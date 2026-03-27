@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<div class="auth-container">
+    <h2>Register</h2>
+
+ <!-- Registeration form-->
+    <form method="POST" action="{{url_for('register')}}" class="auth-form">
+        <!-- Full Name -->
+         <input 
+         type="text"
+         name="fullname"
+         id="registerFullname"
+         placeholder="Enter your Full Name"
+         required minlength="2">
+
+         <!--Email-->
+         <input 
+         type="email"
+         name="email"
+         id="registerEmail"
+         placeholder="Enter your Email Address" required> 
+
+         <!--Password-->
+         <input 
+         type="password"
+         name="password"
+         id="registerPassword"
+         placeholder="Enter your password"
+         required minlength="8">
+
+         <!--Gender-->
+         <select name="gender" id="registerGender" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+         </select>
+
+         <!--User Type-->
+         <select name="gender" id="registerUser" required>
+            <option value="" disabled selected>Select User Type</option>
+            <option value="Customer">Customer</option>
+            <option value="Admin">Admin</option>
+         </select>
+
+         <button type="submit" class="register-btn">Register</button>
+    </form>
+
+    <p class="Switch">
+        Already have an account?
+        <a href="{{url_for('login')}}">Login</a>
+    </p>
+
+{% endblock %}
