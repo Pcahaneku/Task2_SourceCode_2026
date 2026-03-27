@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, redirect, url_for, flash
-from model import db, User
+from model import db, User, Product
 from flask_bcrypt import Bcrypt
 import os  #This is used to interact with the operating system, such as for file handling or environment variables.
 
@@ -99,7 +99,7 @@ def login():
         flash('Invalid email or password', 'error') #If the login credentials are incorrect, it flashes an error message and re-renders the login page.
         return redirect(url_for('login'))
 
-    return render_template('account.html') #If the user is logged in, it renders the account.html template.
+    return render_template('login.html') #If the user is logged in, it renders the login.html template.
 
 #ACCOUNT ROUTE that renders the order.html template and leads to the offers page. 
 @app.route('/account') 

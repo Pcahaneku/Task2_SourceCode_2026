@@ -12,16 +12,23 @@ Pages extend this file using Jinja template inheritance.
     <title>{% block title %}My Flask App{% endblock %}</title>
     
     <!-- Global CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/styles.css') }}">
     {% block head %}{% endblock %}  
 </head>
+
+
 <body>
 
 <!-- Navigation Bar -->
 
 <nav class="navbar">
 
+    <div>
+        <img class="navlogo" src="/static/images/glhLogo.png">
+    </div>
+
     <div class="nav-left">
+        
         <a href="{{url_for('homepage')}}">Home</a>
         <a href="{{url_for('products')}}">Products</a>
         <a href="{{url_for('login')}}">Login</a>
@@ -48,6 +55,7 @@ Pages extend this file using Jinja template inheritance.
             {% endif %}
         {% endif %}
     </div>
+    
 </nav>
 
 <!-- Page Content -->
@@ -73,7 +81,7 @@ Pages extend this file using Jinja template inheritance.
 
 <!-- Page Footer -->
 <footer class="footer">
-    <p>&copy; 2026 Web Application. All rights reserved.</p>
+    <p>&copy; 2026 Greenfield Local Hub. All rights reserved.</p>
 
     <a href="{{ url_for('privacy') }}">Privacy Policy</a>
     <a href="{{ url_for('terms') }}">Terms & Conditions</a>
@@ -81,7 +89,7 @@ Pages extend this file using Jinja template inheritance.
 
 <!-- Global JavaScript -->
 
-<script src="{{ url_for('static', filename='js/accessibility.js') }}"></script>
+<script src="{{ url_for('static', filename='/accessibility.js') }}"></script>
 
 <!--Page Specific JavaScript-->
 {% block scripts %} <!-- Placeholder for page-specific scripts -->

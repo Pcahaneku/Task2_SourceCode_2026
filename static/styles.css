@@ -1,0 +1,75 @@
+/*GLOBAL STYLES
+Purpose: Provide consistent styles across all pages. 
+Helps maintain a professiona; and orgainsed interface.
+*/
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+/* 
+   NAVIGATION BAR
+   Purpose: Main navigation menu across the site.
+   This is included in base.html so it appears on all pages.
+*/
+
+/* Logo */ 
+.navlogo{
+    width: 190px;
+    /* height: 50%; */
+
+}
+
+.navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:40px 40px;
+    background-color: #5A6E1A;
+}
+
+/* Navigation links */
+
+.navbar a{
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: 500;
+}
+
+/* Hover effect to improve user experience */
+
+.navbar a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+   FOOTER
+   Purpose: Displays copyright and legal links.
+   Helps demonstrate awareness of legal requirements.
+*/
+
+.footer{
+    color: #ffffff;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+    background:#000000;
+}
+
+

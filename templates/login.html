@@ -1,22 +1,40 @@
 {% extends "base.html" %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
+<div class="auth-container">
+    <h2>Login</h2>
 
+    <form method="POST" action="{{url_for('login')}}" class="auth-form">
 
+        <!--Email-->
+        <input
+        type="email"
+        name="email"
+        id="loginEmail"
+        placeholder="Enter your email"
+        required>
 
+        <!--Password-->
+        <input
+        type="password"
+        name="password"
+        id="loginPassword"
+        placeholder="Enter your email"
+        required>
 
+        <button type="submit" class="login-btn">Login</button>
+    </form>
 
+    <p class="switch">
+        <p>Don't have an account?</p>
+        <a href="{{url_for('register')}}">Register</a>
+    </p>
 
-
-
-
-
-
-
-
-
+</div>
 
 {% endblock %}
