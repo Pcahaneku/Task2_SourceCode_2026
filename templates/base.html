@@ -43,8 +43,8 @@ Pages extend this file using Jinja template inheritance.
             <a href="{{ url_for('order') }}">Orders</a>
             <a href="{{ url_for('logout') }}">Logout</a>
 
-            {% if session.get('is_admin') %}
-                <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+        {% if session.get('is_admin') %}
+            <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
 
             {% endif %}
         {% endif %}

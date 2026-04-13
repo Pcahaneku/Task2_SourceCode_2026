@@ -1,17 +1,17 @@
-/*GLOBAL STYLES
-Purpose: Provide consistent styles across all pages. 
-Helps maintain a professiona; and orgainsed interface.
+/* GLOBAL STYLES
+   Purpose: Provide consistent styles across all pages. 
+   Helps maintain a professiona; and orgainsed interface.
 */
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     background-color: #ffffff;
+    font-size: 17px;
 }
 
-/* 
-   NAVIGATION BAR
+/* NAVIGATION BAR
    Purpose: Main navigation menu across the site.
    This is included in base.html so it appears on all pages.
 */
@@ -29,6 +29,7 @@ body{
     align-items:center;
     padding:40px 40px;
     background-color: #5A6E1A;
+    
 }
 
 /* Navigation links */
@@ -38,6 +39,7 @@ body{
     text-decoration: none;
     margin-right: 20px;
     font-weight: 500;
+    
 }
 
 /* Hover effect to improve user experience */
@@ -46,17 +48,115 @@ body{
     text-decoration: underline;
 }
 
+/*  PAGE CONTAINER
+    Purpose: Keeps page content centered and readable.
+*/
 
+.container{
+    width: 85%;
+    margin: auto;
+    padding: 20px;
+}
 
+#text{
+    padding-top: 25px;
+}
 
+/*  HEADINGS
+    Purpose: Consistent heading styling across pages.
+*/ 
 
+h1{
+    margin-bottom: 20px;
+}
 
+h2{
+    margin-bottom: 15px;
+}
 
+/*  BUTTON STYLING
+    Purpose: Used for submit buttons such as login button or register button etc.
+*/
 
+button, .btn{
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 16px; 
+    background: #5A6E1A;
+    color: #ffffff;
+}
 
+.btn::placeholder{
+    font-size: 2px;
+}
 
+.btn:hover{
+    background-color: #ffffff;
+    color: #000000;
+}
 
+/*  FORM STYLING
+    Purpose: Ensure all forms have consistent layout.
+    Used for input fields, such as the regsitration or login page. 
+*/
 
+form{
+    max-width: 400px;
+    
+}
+
+label{
+    display: block;
+    margin-top: 10px;
+}
+
+input,select{ 
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #5A6E1A;
+    border-radius: 4px;
+   
+}
+
+/*  ALERT MESSAGES
+    Purpose: Display flash messages from flask.
+    Helps provide user feedback and improve User Experience.
+*/
+
+.flash-messages{
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+/* Success messages */
+
+.flash-messages.success{
+    color: #aaf5bb;
+}
+
+/* Error message */
+
+.flash-messages.error{
+    background: #f8d7da;
+}
+
+/* CARD COMPONENT
+    Purpose: Useful for dashboards or for displaying content such as schedules, bookinfs, or statistics.
+*/
+
+.card{
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
 
 /*
    FOOTER

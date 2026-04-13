@@ -189,7 +189,12 @@ def terms():
 #LOGOUT PAGE that renders the logout.html template and leads to the logout page. 
 @app.route('/logout')
 def logout():
-     return redirect(url_for('homepage')) #This redirects the user to the homepage after logging out.
+     
+     session.clear() #This clears all data from the session, efficiently logging the user ot by removing their user ID and email form the seesion.
+
+     flash('You have been logged out successfully', 'success')
+
+     return render_template('homepage.html') #This redirects the user to the homepage after logging out.
 
 #This helps in running the app in debug mode. By reloading the server when code changes.
 if __name__ == '__main__': 
