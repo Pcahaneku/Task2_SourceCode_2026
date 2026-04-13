@@ -10,7 +10,8 @@ class User(db.Model):
     email = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
     gender = db.Column(db.String(20), nullable=False)
-    userType = db.Column(db.String, nullable=False)
+    user_type = db.Column(db.String, nullable=True, default='regular')
+    is_admin = db.Column(db.Boolean, default=False)
 
     def __repr__(self): 
         return f'<User {self.fullname}>' #This is a special method that defines how the User object is represented as a string, which can be useful for debugging and logging purposes.
@@ -23,6 +24,9 @@ class Product(db.Model):
     price = db.Column(db.Integer, nullable=False)
     description = db.Column(db.Text(500), nullable=False)
 
-    def __repr__(self): 
-        return f'<Product {self.name}>'
-    
+#Order model for the database
+class Order(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    product_id = db.Column(db.Integer, db.ForeignKey('product.id'), nullable=False)
+    date = db.Column(db.Date, nullable=False)
