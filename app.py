@@ -20,8 +20,10 @@ with app.app_context():
 # PRODUCTS List 
     if not Product.query.first(): #If no products exists in database
             products = [
-                Product(name='Fresh Apple 1', description='Apple. Crisp and sweet, perfect for snacking.', price=0.30)
-
+                Product(name='Fresh Apple 1', description='Apple. Crisp and sweet, perfect for snacking.', price=0.30),
+                Product(name='GLH Banana Loose 1', description='Banana. Hand picked and ripened with a sweet flavour added to it.', price=0.50),
+                Product(name='GLH Cherry Tomatoes 350G', description='Tomatoes. Vine ripened for a crsip bit, with juicy flavour.', price=1.50),
+                Product(name='GLH Medium Cucumbers 250G', description='Cucumber. Carefully selected to be cool and crisp with extra crunch and comes in a medium size.', price=1.80)
                 ]
 
             db.session.add_all(products)
