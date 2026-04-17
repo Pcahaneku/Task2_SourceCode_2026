@@ -98,6 +98,86 @@ button, .btn{
     color: #000000;
 }
 
+/* PRODUCTS STYLING
+    Purpose: Ensure the products are displayed in a readable format and have a consistent layout. Used to display the products in the products page.
+*/
+
+.product.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap:5px;
+}
+
+.product_card{
+    background: #ffffff;
+    border-radius: 0px;
+    overflow: hidden;
+    box-shadow: 0 6px 8px #888888;
+    transition: transform 0.2s ease;
+    margin-top: 25px;
+    width: 50%;
+}
+
+.product_card:hover{
+    transform: translateY(-5px);
+}
+
+/* Product Image */
+.product_image{
+    display: block;
+    text-align: center;
+}
+
+/* Product Detials*/
+.product_description {
+    padding: 15px;
+}
+
+.product_description h2{
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.product_description p{
+    font-size: 0.9rem;
+    color:#000000;
+    margin-bottom: 10px;
+}
+
+.price{
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Add to cart button */
+.add_to_cart{
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #5A6E1A; 
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 2px;
+    width: 250px;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.add_to_cart:hover{
+    background-color: #000000;
+}
+
+/* This makes it a single column on small screens */
+ @media (max-width: 600px) {
+    .product-grid{
+        grid-template-columns: 1fr;
+    }
+ }
+
+
+
 /*  FORM STYLING
     Purpose: Ensure all forms have consistent layout.
     Used for input fields, such as the regsitration or login page. 

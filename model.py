@@ -10,8 +10,7 @@ class User(db.Model):
     email = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
     gender = db.Column(db.String(20), nullable=False)
-    user_type = db.Column(db.String, nullable=True, default='regular')
-    is_admin = db.Column(db.Boolean, default=False)
+    role = db.Column(db.String(50))
 
     def __repr__(self): 
         return f'<User {self.fullname}>' #This is a special method that defines how the User object is represented as a string, which can be useful for debugging and logging purposes.

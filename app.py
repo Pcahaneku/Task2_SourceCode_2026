@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, session, redirect, url_for, flash
-from functools import wraps
 from model import db, User, Product, Order
 from flask_bcrypt import Bcrypt
 import os  #This is used to interact with the operating system, such as for file handling or environment variables.
@@ -16,6 +15,7 @@ db.init_app(app)
 
 with app.app_context():
     db.create_all()
+
 
 #HOMEPAGE ROUTE that renders the homepage.html template and leads to the homepage page. 
 @app.route('/')
@@ -36,7 +36,9 @@ def register():
         hashed_password = bcrypt.generate_password_hash(plain_password).decode('utf-8')
 
         gender = request.form.get("gender")
-        user_type = request.form.get("user_type")
+        role = request.form.get('role')
+
+        role = "customer"
 
         #VALIDATION
         if not fullname or not email or not plain_password:
@@ -62,9 +64,6 @@ def register():
             flash('Please select a valid gender.', 'error')
             return render_template('register.html')
         
-        #USER TYPE VALIDATION
-        if user_type == 'Admin':
-            return render_template('admin_dashboard.html')
         
         
         # CREATE A NEW USER INSTANCE    
@@ -73,8 +72,7 @@ def register():
             email=email, 
             password=hashed_password, 
             gender=gender,
-            user_type=user_type,
-            is_admin=False
+            role=role
         )
 
         try: 
@@ -105,31 +103,24 @@ def login():
             flash('Login successful', 'success')
             return redirect(url_for('account')) #This redirects the user to the homepage after a successful login.
         
+        # Admin Session
+        if user:
+            session['user_id'] = user.id
+            session['user_role'] = user.role
+        
         flash('Invalid email or password', 'error') #If the login credentials are incorrect, it flashes an error message and re-renders the login page.
         return redirect(url_for('login'))
-    
-        if user:
-            session['user_id'] = user.fullname
-            session['is_admin'] = user['is_admin']
-            return f'Logged in as {user.fullname}'
-        return 'User not found', 404
-
-        
 
     return render_template('login.html') #If the user is logged in, it renders the login.html template.
 
-def admin_required(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if not session.get('is_admin'):
-            abort(403) #Forbidden
-        return f(*args, **kwargs)
-    return decorated_function
+
 
 #ADMIN DASHBOARD ROUTE that renders the admin_dashboard.html template and leads to the admin_dashboard page. 
 @app.route('/admin_dashboard') 
-@admin_required
 def admin_dashboard():
+
+    if 'role' != 'admin':
+      flash ('Access Denied')
 
       return render_template('admin_dashboard.html') #If the admin is logged in, it renders the admin_dashboard.html template.
 
@@ -143,16 +134,19 @@ def account():
 
     users = None
 
-    # ADMIN ACCESS
-    if session.get("is_admin"):
-        users = User.query.all()
-
     return render_template("account.html", users=users)
 
 #PRODUCTS ROUTE that renders the products.html template and leads to the products page. 
 @app.route('/products') 
 def products():
-      return render_template('products.html') 
+      products = Product.query.all()
+      return render_template('products.html', products=products) 
+
+#PRODUCT DETAILS 
+@app.route('/products/<int:id>')
+def product_details(id):
+    product = Product.query.get_or_404
+    return render_template('product_details.html', product=product)
 
 #ORDERS ROUTE that renders the order.html template and leads to the offers page. 
 @app.route('/order') 

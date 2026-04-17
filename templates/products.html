@@ -1,26 +1,25 @@
 {% extends "base.html" %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Groceries{% endblock %}
 
 {% block content %}
 
-<h1>Frusits Trending Now</h1>
+<h1>Groceries Trending Now</h1>
 
 <div class="products_grid">
     <!--Product 1-->
     <div class="product_card">
-        <img src="/static/images/product_apple.png" alt="A fresh apple">
+        <div class='product_image'>
+            <img  src="/static/images/product_apple.png" height='300px' width='200px' alt="A fresh apple">
+        </div>
         <div class="product_description"> 
             <h2>Fresh Apples</h2>
             <p>Crisp and sweet, perfect for snacking.</p>
-            <div class="price"> £2.50 / kg </div>
-            <a href='/order.html' class="add_to_cart">Add to Cart</a>
+            <div class="price">£0.30 / kg </div>
+            <a class="add_to_cart" href="/order" >Add to Cart</a>
         </div>
     </div>
-
-
-
-
+    
 
 </div>
     
