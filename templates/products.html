@@ -4,26 +4,228 @@
 
 {% block content %}
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <h1>Groceries Trending Now</h1>
 
 <div class="products_grid">
-    <!--Product 1-->
+<table>
+    {% for product in products %}
+    <tr>
+       <td class="product_container">
+            <div class='product_card'>
+                <div class='product_image'>
+                    <img  src="/static/images/product_apple.png" height='300px' width='200px' alt="A fresh apple">
+                </div>
+                <div class="product_description"> 
+                    <h2>{{ product.name }}</h2>
+                    <h5>{{ product.description}}</h5>
+
+                    <div class="rating"> 
+                        <p>★★★★★ 5 star (400 ratings) <a href="/product_details"> View details</a>
+                    </div>
+
+                    <p>Apple. <br>
+                    <p>Crisp and sweet, perfect for snacking.</p>
+                    <div class="price">£{{ product.price }} / kg </div>
+                    <a class="add_to_cart" href="/order" >Order Now</a>
+                </div>
+            </div>
+        </td>
+
+       <td class="product_container">
+            <div class='product_card'>
+                <div class='product_image'>
+                    <img  src="/static/images/product_apple.png" height='300px' width='200px' alt="A fresh apple">
+                </div>
+                <div class="product_description"> 
+                    <h2>Fresh Apple 1</h2>
+                    <h5>Description</h5>
+
+                    <div class="rating"> 
+                        <p>★★★★★ 5 star (400 ratings) <a href="/product_details"> View details</a>
+                    </div>
+
+                    <p>Apple. <br>
+                    <p>Crisp and sweet, perfect for snacking.</p>
+                    <div class="price">£0.30 / kg </div>
+                    <a class="add_to_cart" href="/order" >Order Now</a>
+                </div>
+            </div>
+        </td>
+    {% endfor %}
+    </tr>
+
+    <!--<tr>
+        <td class="product_container">
+            <div class='product_card'>
+                <div class='product_image'>
+                    <img  src="/static/images/product_apple.png" height='300px' width='200px' alt="A fresh apple">
+                </div>
+                <div class="product_description"> 
+                    <h2>Fresh Apple 1</h2>
+                    <h5>Description</h5>
+
+                    <div class="rating"> 
+                        <p>★★★★★ 5 star (400 ratings) <a href="/product_details"> View details</a>
+                    </div>
+
+                    <p>Apple. <br>
+                    <p>Crisp and sweet, perfect for snacking.</p>
+                    <div class="price">£0.30 / kg </div>
+                    <a class="add_to_cart" href="/order" >Order Now</a>
+                </div>
+            </div>
+        </td>
+
+       <td class="product_container">
+            <div class='product_card'>
+                <div class='product_image'>
+                    <img  src="/static/images/product_apple.png" height='300px' width='200px' alt="A fresh apple">
+                </div>
+                <div class="product_description"> 
+                    <h2>Fresh Apple 1</h2>
+                    <h5>Description</h5>
+
+                    <div class="rating"> 
+                        <p>★★★★★ 5 star (400 ratings) <a href="/product_details"> View details</a>
+                    </div>
+
+                    <p>Apple. <br>
+                    <p>Crisp and sweet, perfect for snacking.</p>
+                    <div class="price">£0.30 / kg </div>
+                    <a class="add_to_cart" href="/order" >Order Now</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="product_container">
+            <div class='product_card'>
+                <div class='product_image'>
+                    <img  src="/static/images/product_apple.png" height='300px' width='200px' alt="A fresh apple">
+                </div>
+                <div class="product_description"> 
+                    <h2>Fresh Apple 1</h2>
+                    <h5>Description</h5>
+
+                    <div class="rating"> 
+                        <p>★★★★★ 5 star (400 ratings) <a href="/product_details"> View details</a>
+                    </div>
+
+                    <p>Apple. <br>
+                    <p>Crisp and sweet, perfect for snacking.</p>
+                    <div class="price">£0.30 / kg </div>
+                    <a class="add_to_cart" href="/order" >Order Now</a>
+                </div>
+            </div>
+        </td>
+
+        <td class="product_container">
+            <div class='product_card'>
+                <div class='product_image'>
+                    <img  src="/static/images/product_apple.png" height='300px' width='200px' alt="A fresh apple">
+                </div>
+                <div class="product_description"> 
+                    <h2>Fresh Apple 1</h2>
+                    <h5>Description</h5>
+
+                    <div class="rating"> 
+                        <p>★★★★★ 5 star (400 ratings) <a href="/product_details"> View details</a>
+                    </div>
+
+                    <p>Apple. <br>
+                    <p>Crisp and sweet, perfect for snacking.</p>
+                    <div class="price">£0.30 / kg </div>
+                    <a class="add_to_cart" href="/order" >Order Now</a>
+                </div>
+            </div>
+        </td>
+    </tr> -->
+
+    <!--Product 1
     <div class="product_card">
         <div class='product_image'>
             <img  src="/static/images/product_apple.png" height='300px' width='200px' alt="A fresh apple">
         </div>
         <div class="product_description"> 
-            <h2>Fresh Apples</h2>
+            <h2>Fresh Apple 1</h2>
+            <h5>Description</h5>
+
+            <div class="rating"> 
+                <p>★★★★★ 5 star <a href="/product_details">(400 ratings)</a>
+            </div>
+
+            <p>Apple. <br>
             <p>Crisp and sweet, perfect for snacking.</p>
             <div class="price">£0.30 / kg </div>
             <a class="add_to_cart" href="/order" >Add to Cart</a>
         </div>
     </div>
     
+    Product 2
+    <div class="product_card">
+        <div class='product_image'>
+            <img src="/static/images/product_banana.png" height='300px' width='250px' alt="A fresh apple">
+        </div>
+        <div class="product_description"> 
+            <h2>GLH Banana Loose 1</h2>
+            <h5>Description</h5>
 
-</div>
-    
+            <div class="rating"> 
+                <p>☆☆★★★ 3 star <a href="/product_details">(250 ratings)</a>
+            </div>
 
+            <p>Banana. <br>
+            <p>Hand picked and ripened with a sweet flavour added to it.</p>
+            <div class="price">£0.50</div>
+            <a class="add_to_cart" href= "/order" >Add to Cart</a>
+        </div>
+    </div>
+
+    Product 3
+    <div class="product_card">
+        <div class='product_image'>
+            <img src="/static/images/product_tomatoes_pack.png" height='300px' width='250px' alt="5 tomatoes">
+        </div>
+        <div class="product_description"> 
+            <h2>GLH Cherry Tomatoes 350G</h2>
+            <h5>Description</h5>
+            <div class="rating"> 
+                <p>☆★★★★ 4 star <a href="/product_details">(190 ratings)</a>
+            </div>
+
+            <p>Tomatoes. <br>
+            <p>Vine ripened for a crsip bit, with juicy flavour.</p>
+
+            <div class="price">£1.50 / 3.60kg</div>
+            <a class="add_to_cart" href="/order" >Add to Cart</a>
+            </div>
+        </div>
+
+        Product 
+        <div class="product_card" >
+            <div class='product_image' >
+                <img src="/static/images/product_cucumber.png" height='300px' width='250px' alt="2 cucumbers stacked">
+            </div>
+            <div class="product_description" > 
+            
+                <h2>GLH Medium Cucumbers 250G<h2> 
+                <h5>Description</h5>
+                <div class="rating"> 
+                    <p>☆☆☆★★ 2 star <a href="/product_details">(150 ratings)</a>
+                </div>
+                    <p>Cucumber. <br>
+                    Carefully selected to be cool and crisp with extra crunch and comes in a medium size.</p>
+                <div class="price">£1.80</div>
+                <a class="add_to_cart" href="/order">Add to Cart</a>
+            </div>
+        </div>--> 
+   
+    </tbody>
+</table>    
+ </div>
 
 
 

@@ -16,6 +16,19 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
+with app.app_context(): 
+# PRODUCTS List 
+    if not Product.query.first(): #If no products exists in database
+            products = [
+                Product(name='Fresh Apple 1', description='Apple. Crisp and sweet, perfect for snacking.', price=0.30)
+
+                ]
+
+            db.session.add_all(products)
+            db.session.commit()
+
+
+
 
 #HOMEPAGE ROUTE that renders the homepage.html template and leads to the homepage page. 
 @app.route('/')
@@ -139,14 +152,15 @@ def account():
 #PRODUCTS ROUTE that renders the products.html template and leads to the products page. 
 @app.route('/products') 
 def products():
-      products = Product.query.all()
-      return render_template('products.html', products=products) 
+        products = Product.query.all()
+
+        return render_template('products.html', product=products) 
 
 #PRODUCT DETAILS 
 @app.route('/products/<int:id>')
 def product_details(id):
     product = Product.query.get_or_404
-    return render_template('product_details.html', product=product)
+    return render_template('product_details.html', product=products)
 
 #ORDERS ROUTE that renders the order.html template and leads to the offers page. 
 @app.route('/order') 
