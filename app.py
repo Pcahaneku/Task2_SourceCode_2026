@@ -20,22 +20,22 @@ with app.app_context():
 # PRODUCTS List 
     if not Product.query.first(): #If no products exists in database
             products = [
-                Product(name='Fresh Apple 1', description='Apple. Crisp and sweet, perfect for snacking.', price=0.30), 
-                Product(name='GLH Medium Cucumbers 250G', description='Cucumber. Carefully selected to be cool and crisp with extra crunch and comes in a medium size.', price=1.80),
-                Product(name='GLH Banana Loose 1', description='Banana. Hand picked and ripened with a sweet flavour added to it.', price=0.50),
-                Product(name='GLH Cherry Tomatoes 350G', description='Tomatoes. Vine ripened for a crsip bit, with juicy flavour.', price=1.50)
+                Product(id='1', name='Fresh Apple 1', description='Apple. Crisp and sweet, perfect for snacking.', price=0.30, image='static/images/product_apple.png'), 
+                Product(id ='2', name='GLH Medium Cucumbers 250G', description='Cucumber. Carefully selected to be cool and crisp with extra crunch and comes in a medium size.', price=1.80, image='static/images/product_cucumber.png'),
+                Product(id='3', name='GLH Banana Loose 1', description='Banana. Hand picked and ripened with a sweet flavour added to it.', price=0.50, image='static/images/product_banana.png'),
+                Product(id='4', name='GLH Cherry Tomatoes 350G', description='Tomatoes. Vine ripened for a crsip bit, with juicy flavour.', price=1.50, image='static/images/product_tomatoes_pack.png')
                 ]
 
             db.session.add_all(products)
             db.session.commit()
 
-
-
-
 #HOMEPAGE ROUTE that renders the homepage.html template and leads to the homepage page. 
 @app.route('/')
 def homepage():
-    return render_template ('homepage.html')
+
+    products = Product.query.all()
+
+    return render_template ('homepage.html', products=products)
 
 #REGISTRATION ROUTE that renders the register.html template and leads to the registration page. 
 @app.route('/register', methods=['GET', 'POST']) 
@@ -152,17 +152,33 @@ def account():
     return render_template("account.html", users=users)
 
 #PRODUCTS ROUTE that renders the products.html template and leads to the products page. 
-@app.route('/products') 
+@app.route('/products', methods=['GET','POST']) 
 def products():
         products = Product.query.all()
 
-        return render_template('products.html', product=products) 
+        if request.method == 'POST':
+            file = request.files.get('image')
+            if not file:
+                return 'NO file had been uploaded', 400
+            
+            new_photo = Product(
+                image = file.read(),
+                filename = file.filename,
+                mimetype = file.mimetype
+            )
+
+            db.session.add(new_photo)
+            db.session.commit()
+            return 'Uploaded {file.filename} successfully'
+
+
+        return render_template('products.html', products=products) 
 
 #PRODUCT DETAILS 
 @app.route('/products/<int:id>')
 def product_details(id):
-    product = Product.query.get_or_404
-    return render_template('product_details.html', product=products)
+    products = Product.query.get_or_404
+    return render_template('product_details.html', products=products)
 
 #ORDERS ROUTE that renders the order.html template and leads to the offers page. 
 @app.route('/order') 

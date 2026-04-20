@@ -27,7 +27,7 @@ body{
     display:flex;
     justify-content:space-between;
     align-items: center;
-    padding: 40px 40px;
+    padding: 10px 15px;
     background-color: #5A6E1A;
     
 }
@@ -60,14 +60,8 @@ body{
     Purpose: Keeps page content centered and readable.
 */
 
-.container{
-    width: 85%;
-    margin: auto;
-    padding: 20px;
-}
-
 #text{
-    padding-top: 25px;
+    padding-top: 15px;
 }
 
 /*  HEADINGS
@@ -75,11 +69,11 @@ body{
 */ 
 
 h1{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 h2{
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 /*  BUTTON STYLING
@@ -202,54 +196,40 @@ button, .btn{
  /* HOMEPAGE STYLING
     Purpose: Displays the homepage view that will be used to give customers an overview of what the website includes. */
 
-/*
-}
 
-.image_container, #image{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    
-
-    
-    height: 300px;
-    background-size: cover;
-    background-attachment: fixed;
+.image_container{
+    background-image: url('/static/images/groceries_fruits_staked.jpg');
+    background-size:cover;
     background-position: center;
-    background-repeat: no-repeat;*/
+    height: 400px;
     
-.image_container .image{
+
     display: flex;
-    align-items: center;
+    flex-direction:column;
     justify-content: center;
-}
-
-.image{ 
-    position: relative;
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-    background-position: center;
-    overflow: hidden;
-}
-
-.welcome_message{
-    justify-items: center;
     text-align: center;
-    position: absolute;
-    top: 45%;
-    left:50%;
-    transform: translate(-50%, -50%);
+
     color: #ffffff;
+    font-size: medium;
 }
 
 hr{
     text-decoration: none;
     color: #ffffff;
     box-shadow: none;
+    width: 50%;
 }
 
+.search_input{
+    width: 30%;
+
+}
+
+.search_bar{
+    width: 150px;
+    border-radius: 2px;
+    background-color: #000000;
+}
 
 
 

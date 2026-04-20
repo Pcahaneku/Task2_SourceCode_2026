@@ -3,12 +3,9 @@
 {% block title %}Homepage{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div class="homepage_container">
-
-    <div class="image_container">
-        <img class="image" src="/static/images/groceries_fruits_staked.jpg" height="500" width="700">
-    </div>
+<div class="image_container">
 
     <div class="welcome_message">
         <h1>Welcome to GreenField Local Hub</h1>
@@ -17,6 +14,62 @@
         <hr>
     </div>
 
+    <!--Search Bar-->
+    <div class="search">
+        <input class="search_input" type="text" placeholder="Search...">
+        <button type="submit" class="search_bar"><i class='fa fa-search'></i> Search</button>
+    </div>
+
+<!--<div class="products_grid">
+<table>
+    {% for product in products %}
+
+    <div>
+        <tr>
+            <td class="product_container">
+            <div class='product_card'>
+                <div class='product_image' >
+                    <img src="/static/images/product_cucumber.png" height='300px' width='250px' alt="2 cucumbers stacked">
+                </div>
+                <div class="product_description"> 
+                    <h2>{{ product.name }}</h2>
+
+                    <div class="rating"> 
+                        <p>★★☆☆☆ 2 star <a href="/product_details">(150 ratings)</a>
+                    </div>
+
+                    <p>{{ product.description}}</p>
+                    <div class="price">£{{ product.price }} </div>
+                    <a class="add_to_cart" href="/order" >Order Now</a>
+                </div>
+            </div>
+            </td>
+
+            <td class="product_container">
+            <div class='product_card'>
+                <div class='product_image' >
+                    <img src="/static/images/product_cucumber.png" height='300px' width='250px' alt="2 cucumbers stacked">
+                </div>
+                <div class="product_description"> 
+                    <h2>{{ product.name }}</h2>
+                    <h5></h5>
+
+                    <div class="rating"> 
+                        <p>★★☆☆☆ 2 star <a href="/product_details">(150 ratings)</a>
+                    </div>
+
+                    <p>{{ product.description}}</p>
+                    <div class="price">£{{ product.price }} </div>
+                    <a class="add_to_cart" href="/order" >Order Now</a>
+                </div>
+            </div>
+            </td>
+        </tr>
+    </div>
+ </table>
+</div>
+
+{% endfor %} -->
 
 
 

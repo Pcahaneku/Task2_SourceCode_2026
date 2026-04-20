@@ -18,8 +18,10 @@ class User(db.Model):
 #Product model for the database
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100) )
-    price = db.Column(db.Integer )
+    image = db.Column(db.LargeBinary, nullable=False) #Stores Image as a Binary
+    filename = db.Column(db.String(255), nullable=False)
+    name = db.Column(db.String(100))
+    price = db.Column(db.Integer)
     description = db.Column(db.Text(500))
 
 #Order model for the database
