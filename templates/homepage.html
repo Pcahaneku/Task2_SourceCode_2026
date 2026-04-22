@@ -5,6 +5,18 @@
 {% block content %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+  <style>
+        .product_home{
+            display: flex;
+            flex-wrap:wrap;
+            margin: 30px;
+            align-items: center;
+            justify-content: center;
+        }
+
+    </style>
+
+
 <div class="image_container">
 
     <div class="welcome_message">
@@ -20,56 +32,55 @@
         <button type="submit" class="search_bar"><i class='fa fa-search'></i> Search</button>
     </div>
 
-<!--<div class="products_grid">
-<table>
-    {% for product in products %}
+    <div class="products_home">
+        <table>
 
-    <div>
-        <tr>
-            <td class="product_container">
-            <div class='product_card'>
-                <div class='product_image' >
-                    <img src="/static/images/product_cucumber.png" height='300px' width='250px' alt="2 cucumbers stacked">
-                </div>
-                <div class="product_description"> 
-                    <h2>{{ product.name }}</h2>
-
-                    <div class="rating"> 
-                        <p>★★☆☆☆ 2 star <a href="/product_details">(150 ratings)</a>
+        <div>
+            <tr>
+                <td class="product_container">
+                <div class='product_card'>
+                    <div class='product_image' >
+                        <img src="{{ url_for('static', filename='/images/' + product.image_url )}}" height='300px' width='250px' alt="2 cucumbers stacked">
                     </div>
+                    <div class="product_description"> 
+                        <h2></h2>
 
-                    <p>{{ product.description}}</p>
-                    <div class="price">£{{ product.price }} </div>
-                    <a class="add_to_cart" href="/order" >Order Now</a>
-                </div>
-            </div>
-            </td>
+                        <div class="rating"> 
+                            <p>★★☆☆☆ 2 star <a href="/product_details">(150 ratings)</a>
+                        </div>
 
-            <td class="product_container">
-            <div class='product_card'>
-                <div class='product_image' >
-                    <img src="/static/images/product_cucumber.png" height='300px' width='250px' alt="2 cucumbers stacked">
-                </div>
-                <div class="product_description"> 
-                    <h2>{{ product.name }}</h2>
-                    <h5></h5>
-
-                    <div class="rating"> 
-                        <p>★★☆☆☆ 2 star <a href="/product_details">(150 ratings)</a>
+                        <p></p>
+                        <div class="price">£{{ product.price }} </div>
+                        <a class="add_to_cart" href="/order" >Order Now</a>
                     </div>
-
-                    <p>{{ product.description}}</p>
-                    <div class="price">£{{ product.price }} </div>
-                    <a class="add_to_cart" href="/order" >Order Now</a>
                 </div>
-            </div>
-            </td>
-        </tr>
+                </td>
+
+                <td class="product_container">
+                <div class='product_card'>
+                    <div class='product_image' >
+                        <img src="/static/images/product_cucumber.png" height='300px' width='250px' alt="2 cucumbers stacked">
+                    </div>
+                    <div class="product_description"> 
+                        <h2>{{ product.name }}</h2>
+                        <h5></h5>
+
+                        <div class="rating"> 
+                            <p>★★☆☆☆ 2 star <a href="/product_details">(150 ratings)</a>
+                        </div>
+
+                        <p>{{ product.description}}</p>
+                        <div class="price">£{{ product.price }} </div>
+                        <a class="add_to_cart" href="/order" >Order Now</a>
+                    </div>
+                </div>
+                </td>
+            </tr>
+        </div>
+    </table>
     </div>
- </table>
-</div>
 
-{% endfor %} -->
+
 
 
 

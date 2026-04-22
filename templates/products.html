@@ -11,21 +11,19 @@
 <div class="products_grid">
 <table>
     {% for product in products %}
-
-    <!--Table row 1 with two product-->
-    <!--Apple-->
+<!--Products-->
     <tr>
        <td class="product_container">
             <div class='product_card'>
                 <div class='product_image'>
-                    <img  src="{{ url_for('static', filename=product.image) }}" height='300px' width='200px' alt="{{ product.name }}">
+                    <img  src="{{ url_for('static', filename='/images/' + product.image_url )}}" height='400px' width='300px' alt="{{ product.name }}">
                 </div>
                 <div class="product_description"> 
                     <h2>{{ product.name }}</h2>
                     
 
                     <div class="rating"> 
-                        <p>★★★★★ 5 star (400 ratings) <a href="/product_details"> View details</a>
+                        <p>{{ product.rating }} <a href="/product_details"> View details</a>
                     </div>
 
                     <p>{{ product.description}}</p>
@@ -34,76 +32,6 @@
                 </div>
             </div>
         </td>
-
-        <!--Cucmber
-        <td class="product_container">
-            <div class='product_card'>
-                <div class='product_image' >
-                    <img src="/static/images/product_cucumber.png" height='300px' width='250px' alt="2 cucumbers stacked">
-                </div>
-                <div class="product_description"> 
-                    <h2>{{ product.name }}</h2>
-                    <h5></h5>
-
-                    <div class="rating"> 
-                        <p>★★☆☆☆ 2 star <a href="/product_details">(150 ratings)</a>
-                    </div>
-
-                    <p>{{ product.description}}</p>
-                    <div class="price">£{{ product.price }} </div>
-                    <a class="add_to_cart" href="/order" >Order Now</a>
-                </div>
-            </div>
-        </td>
-    </tr>
-
-    Table row 2 with two product
-    Banana
-    <tr>
-       <td class="product_container">
-            <div class='product_card'>
-                 <div class='product_image'>
-                    <img src="/static/images/product_banana.png" height='300px' width='250px' alt="1 fresh Banana">
-                </div>
-                <div class="product_description"> 
-                    <h2>{{ product.name }}</h2>
-                    <h5></h5>
-
-                    <div class="rating"> 
-                        <p>★★★☆☆ 3 star <a href="/product_details">(250 ratings)</a>
-                    </div>
-
-                    <p>{{ product.description}}</p>
-                    <div class="price">£{{ product.price }} </div>
-                    <a class="add_to_cart" href="/order" >Order Now</a>
-                </div>
-            </div>
-        </td>
-    </tr>
-    
-    Table row 3 with two product
-    Totmatoes
-    <tr>
-       <td class="product_container">
-            <div class='product_card'>
-                 <div class='product_image'>
-                    <img src="/static/images/product_tomatoes_pack.png" height='300px' width='250px' alt="A pack of tomatoes">
-                 </div>
-                <div class="product_description"> 
-                    <h2>{{ product.name }}</h2>
-                    <h5></h5>
-
-                    <div class="rating"> 
-                        <p>★★★★☆ 4 star <a href="/product_details">(190 ratings)</a>
-                    </div>
-
-                    <p>{{ product.description}}</p>
-                    <div class="price">£{{ product.price }} / 3.60kg </div>
-                    <a class="add_to_cart" href="/order" >Order Now</a>
-                </div>
-            </div>
-        </td>
-    </tr>-->
 
     {% endfor %} 
    

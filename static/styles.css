@@ -137,6 +137,7 @@ button, .btn{
 /* Product Detials*/
 .product_description {
     padding: 15px;
+
 }
 
 .product_description h2{
@@ -151,21 +152,17 @@ button, .btn{
     margin-bottom: 20px;
 }
 
-
 .price{
     font-size: 1.1rem;
     font-weight: bold;
     color: #000000;
 }
 
-
-
 .rating a{
     text-decoration: underline;
     color: #5A6E1A;
-    
-
 }
+
 
 /* Add to cart button */
 .add_to_cart{

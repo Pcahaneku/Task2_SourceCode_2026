@@ -18,12 +18,39 @@ with app.app_context():
 
 with app.app_context(): 
 # PRODUCTS List 
-    if not Product.query.first(): #If no products exists in database
+    if Product.query.count()== 0: #Check if no products exists in database
             products = [
-                Product(id='1', name='Fresh Apple 1', description='Apple. Crisp and sweet, perfect for snacking.', price=0.30, image='static/images/product_apple.png'), 
-                Product(id ='2', name='GLH Medium Cucumbers 250G', description='Cucumber. Carefully selected to be cool and crisp with extra crunch and comes in a medium size.', price=1.80, image='static/images/product_cucumber.png'),
-                Product(id='3', name='GLH Banana Loose 1', description='Banana. Hand picked and ripened with a sweet flavour added to it.', price=0.50, image='static/images/product_banana.png'),
-                Product(id='4', name='GLH Cherry Tomatoes 350G', description='Tomatoes. Vine ripened for a crsip bit, with juicy flavour.', price=1.50, image='static/images/product_tomatoes_pack.png')
+                Product( 
+                    name='Fresh Apple 1', 
+                    description='Apple. Crisp and sweet, perfect for snacking.', 
+                    rating='★★★★★ 5 star (400 ratings)',
+                    price=0.30,
+                    image_url='product_apple.png'
+                    ), 
+
+                Product( 
+                    name='GLH Medium Cucumbers 250G', 
+                    description='Cucumber. Carefully selected to be cool and crisp with extra crunch and comes in a medium size.', 
+                    rating='★★☆☆☆ 2 star (150 ratings)',
+                    price=1.80,
+                    image_url='product_cucumber.png'
+                    ),
+
+                Product( 
+                    name='GLH Banana Loose 1', 
+                    description='Banana. Hand picked and ripened with a sweet flavour added to it.', 
+                    rating='★★★☆☆ 3 star (250 ratings)',
+                    price=0.50,
+                    image_url='product_banana.png'
+                    ),
+
+                Product( 
+                    name='GLH Cherry Tomatoes 350G', 
+                    description='Tomatoes. Vine ripened for a crsip bit, with juicy flavour.', 
+                    rating='★★★★☆ 4 star (190 ratings)',
+                    price=1.50,
+                    image_url='product_tomatoes_pack.png'
+                    )
                 ]
 
             db.session.add_all(products)
@@ -33,7 +60,7 @@ with app.app_context():
 @app.route('/')
 def homepage():
 
-    products = Product.query.all()
+    products = Product.query.limit(2).all()
 
     return render_template ('homepage.html', products=products)
 
@@ -152,32 +179,17 @@ def account():
     return render_template("account.html", users=users)
 
 #PRODUCTS ROUTE that renders the products.html template and leads to the products page. 
-@app.route('/products', methods=['GET','POST']) 
+@app.route('/products') 
 def products():
-        products = Product.query.all()
-
-        if request.method == 'POST':
-            file = request.files.get('image')
-            if not file:
-                return 'NO file had been uploaded', 400
-            
-            new_photo = Product(
-                image = file.read(),
-                filename = file.filename,
-                mimetype = file.mimetype
-            )
-
-            db.session.add(new_photo)
-            db.session.commit()
-            return 'Uploaded {file.filename} successfully'
-
+        with app.app_context():
+            products = Product.query.all()
 
         return render_template('products.html', products=products) 
 
 #PRODUCT DETAILS 
 @app.route('/products/<int:id>')
-def product_details(id):
-    products = Product.query.get_or_404
+def product_details():
+    
     return render_template('product_details.html', products=products)
 
 #ORDERS ROUTE that renders the order.html template and leads to the offers page. 
