@@ -60,9 +60,7 @@ with app.app_context():
 @app.route('/')
 def homepage():
 
-    products = Product.query.limit(2).all()
-
-    return render_template ('homepage.html', products=products)
+    return render_template ('homepage.html')
 
 #REGISTRATION ROUTE that renders the register.html template and leads to the registration page. 
 @app.route('/register', methods=['GET', 'POST']) 
@@ -150,7 +148,7 @@ def login():
             session['user_id'] = user.id
             session['user_role'] = user.role
         
-        flash('Invalid email or password', 'error') #If the login credentials are incorrect, it flashes an error message and re-renders the login page.
+        flash('Invalid email or password. Please try again later!', 'error') #If the login credentials are incorrect, it flashes an error message and re-renders the login page.
         return redirect(url_for('login'))
 
     return render_template('login.html') #If the user is logged in, it renders the login.html template.
@@ -185,12 +183,6 @@ def products():
             products = Product.query.all()
 
         return render_template('products.html', products=products) 
-
-#PRODUCT DETAILS 
-@app.route('/products/<int:id>')
-def product_details():
-    
-    return render_template('product_details.html', products=products)
 
 #ORDERS ROUTE that renders the order.html template and leads to the offers page. 
 @app.route('/order') 

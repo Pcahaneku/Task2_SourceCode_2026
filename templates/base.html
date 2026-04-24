@@ -28,19 +28,20 @@ Pages extend this file using Jinja template inheritance.
     </div>
 
     <div class="nav-left">
-        
+      {% if user not in session %}  
         <a href="{{url_for('homepage')}}">Home</a>
         <a href="{{url_for('products')}}">Products</a>
         <a href="{{url_for('register')}}">Register</a>
         <a href="{{url_for('login')}}">Login</a>
-        <a href="{{ url_for('order') }}">Orders</a>
+
         <a href="{{ url_for('info') }}">GLH Informations</a>
+      {% endif %} 
     </div>
 
-    <div class="nav-right">
+    <div class="nav-left">
         {% if session.get('user_id')  %}
-            <a href="{{ url_for('account') }}">Your Account</a>
             <a href="{{ url_for('order') }}">Orders</a>
+            <a href="{{ url_for('account') }}">Your Account</a>
             <a href="{{ url_for('logout') }}">Logout</a>
 
         {% if session.get('is_admin') %}

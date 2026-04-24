@@ -5,17 +5,6 @@
 {% block content %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <style>
-        .product_home{
-            display: flex;
-            flex-wrap:wrap;
-            margin: 30px;
-            align-items: center;
-            justify-content: center;
-        }
-
-    </style>
-
 
 <div class="image_container">
 
@@ -29,59 +18,60 @@
     <!--Search Bar-->
     <div class="search">
         <input class="search_input" type="text" placeholder="Search...">
-        <button type="submit" class="search_bar"><i class='fa fa-search'></i> Search</button>
+        <a href="/products"><button type="submit" class="search_bar"><i class='fa fa-search'></i> Search</button></a>
     </div>
 
-    <div class="products_home">
-        <table>
+</div>
 
-        <div>
-            <tr>
-                <td class="product_container">
-                <div class='product_card'>
-                    <div class='product_image' >
-                        <img src="{{ url_for('static', filename='/images/' + product.image_url )}}" height='300px' width='250px' alt="2 cucumbers stacked">
-                    </div>
-                    <div class="product_description"> 
-                        <h2></h2>
+<!--Featured Products-->
+    <!--product 1-->
+<div class='featured'>
+    <h2>Featured Products</h2>
 
-                        <div class="rating"> 
-                            <p>★★☆☆☆ 2 star <a href="/product_details">(150 ratings)</a>
-                        </div>
+    <div class='products'>
 
-                        <p></p>
-                        <div class="price">£{{ product.price }} </div>
-                        <a class="add_to_cart" href="/order" >Order Now</a>
-                    </div>
-                </div>
-                </td>
+        <div class='products-card'>
+            <img class="image-placeholder" src="/static/images/product_cucumber.png" height='400px' width='300px' alt="GLH Medium Cucumbers 250G">
+            
+            <h2>GLH Medium Cucumbers 250G</h2>  
 
-                <td class="product_container">
-                <div class='product_card'>
-                    <div class='product_image' >
-                        <img src="/static/images/product_cucumber.png" height='300px' width='250px' alt="2 cucumbers stacked">
-                    </div>
-                    <div class="product_description"> 
-                        <h2>{{ product.name }}</h2>
-                        <h5></h5>
+            <p>Cucumber...</p>
+            <p>Sales!!!</p>
 
-                        <div class="rating"> 
-                            <p>★★☆☆☆ 2 star <a href="/product_details">(150 ratings)</a>
-                        </div>
-
-                        <p>{{ product.description}}</p>
-                        <div class="price">£{{ product.price }} </div>
-                        <a class="add_to_cart" href="/order" >Order Now</a>
-                    </div>
-                </div>
-                </td>
-            </tr>
+           <p><s>£1.90</s> now:£1.80</p>
+            <a class="add-to-carts" href="/products" >View more</a>
         </div>
-    </table>
+
+
+        <!--product 2-->
+         <div class='products-card'>
+            <img class="image-placeholder" src="/static/images/product_tomatoes_pack.png" height='400px' width='300px' alt="GLH Cherry Tomatoes 350G"> 
+            
+            <h2>GLH Cherry Tomatoes 350G</h2>  
+
+            <p>Tomatoes...</p>
+            <p>Sales!!!</p>
+
+            <p><s>was: £1.60</s> now:£1.50</p>
+            <a class="add-to-carts" href="/products" >View more</a>
+        </div>
+
+
+        <!--product 3-->
+        <div class='products-card'>
+            <img class="image-placeholder" src="/static/images/product_apple.png" height='400px' width='300px' alt="Fresh Apple 1"> 
+            
+            <h2>Fresh Apple 1</h2>  
+
+            <p>Apple...</p>
+            <p>Sales!!!</p>
+
+            <p><s>was: £1.00</s> now:£0.30</p>
+            <a class="add-to-carts" href="/products" >View more</a>
+        </div>
+            
     </div>
-
-
-
+</div>
 
 
 </div>

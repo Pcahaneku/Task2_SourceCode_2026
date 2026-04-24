@@ -121,7 +121,6 @@ button, .btn{
     overflow: hidden;
     box-shadow: 0 6px 8px #888888;
     transition: transform 0.2s ease;
-    
 }
 
 .product_card:hover{
@@ -189,6 +188,65 @@ button, .btn{
     }
  }
 
+/*  FEATURED PRODUCTS 
+    Purpose: To ensure the featured products on the homepage are visible and links to the product.html page.*/
+
+.featured{    
+    padding: 30px;
+    text-align: center;
+}
+
+.products{  
+    display: flex;
+    justify-content: center;
+    gap: 30%;
+    padding-top: 20px;
+}
+
+
+/* PRODUCT CARD */
+.products-card{
+    width: 70%;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 0px;
+    overflow: hidden;
+    box-shadow: 0 6px 8px #888888;
+    transition: transform 0.2s ease;
+}
+
+.products-card:hover{
+    transform: translateY(-5px);
+}
+
+.image-placeholder{
+    display: block;
+    align-items: center;
+}
+
+.add-to-carts{
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 12px;
+    background-color: #5A6E1A; 
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 2px;
+    width: 100px;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.add-to-carts:hover{
+    background-color: #000000;
+}
+
+/* This makes it a single column on small screens */
+ @media (max-width: 600px) {
+    .featured{
+        grid-template-columns: 1fr;
+    }
+ }
 
  /* HOMEPAGE STYLING
     Purpose: Displays the homepage view that will be used to give customers an overview of what the website includes. */
@@ -199,7 +257,6 @@ button, .btn{
     background-size:cover;
     background-position: center;
     height: 400px;
-    
 
     display: flex;
     flex-direction:column;
@@ -229,9 +286,34 @@ hr{
 }
 
 
+/*  METHODS, LOCAL PRODUCE, BENEFITS STYLING
+    Displayed on the informations page */
 
+.methods {
+    background-color: #5A6E1A;
+    margin: 15px; 
+    padding: 5px;
+}
 
+.divider{
+    display: block;
+    margin: 15px;
+}
 
+.heading{
+    margin-left: 10px;
+    padding: 5px;
+    color: #ffffff;
+}
+
+.details{
+    padding: 10px;
+    color:#ffffff;
+}
+
+.list{
+    color:#ffffff;
+}
 
 
 /*  FORM STYLING
@@ -239,47 +321,71 @@ hr{
     Used for input fields, such as the regsitration or login page. 
 */
 
-form{
-    max-width: 400px;
-    
+.auth-container{
+    display: block;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text{
+    text-align: center;
+    padding: 20px;
+}
+
+.auth-form{  
+    max-width: 400px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 label{
-    display: block;
     margin-top: 10px;
 }
 
+
 input,select{ 
-    justify-content: center;
-    align-items: center;
     width: 100%;
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #5A6E1A;
     border-radius: 4px;
-   
 }
+
+.register-btn, .login-btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.switch{
+    padding: 20px;
+    text-align: center;
+}
+
 
 /*  ALERT MESSAGES
     Purpose: Display flash messages from flask.
     Helps provide user feedback and improve User Experience.
 */
-.container { 
-    display: flex;
-    flex-direction: column;
-    margin: 10px; 
-    animation: fadeOut 1s ease-in forwards;
-    animation-delay: 1s; /* Wait 5 seconds before fading */
-}
+
 
 /* Success messages */
 .success { 
-    color: green; 
+    color: rgb(255, 255, 255); 
+    padding: 10px;
+    background-color: #7b922f;
+    text-align: center;
+    animation: fadeOut 1s ease-in forwards;
 }
 
 /* Error message */
 .error { 
-    color: rgb(221, 72, 72); 
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    background-color: #da5858; 
+    text-align: center;
 }
 
 /* CARD COMPONENT

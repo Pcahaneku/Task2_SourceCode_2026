@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="auth-container">
-    <h2>Register</h2>
+    <h2 class="text">Register</h2>
 
  <!-- Registeration form-->
     <form method="POST" action="{{url_for('register')}}" class="auth-form">
@@ -43,7 +43,7 @@
          <button type="submit" class="register-btn">Register</button>
     </form>
 
-    <p class="Switch">
+    <p class="switch">
         Already have an account?
         <a href="{{url_for('login')}}">Login</a>
     </p>

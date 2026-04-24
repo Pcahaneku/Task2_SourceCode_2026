@@ -12,31 +12,28 @@
 <table>
     {% for product in products %}
 <!--Products-->
-    <tr>
+
        <td class="product_container">
             <div class='product_card'>
                 <div class='product_image'>
-                    <img  src="{{ url_for('static', filename='/images/' + product.image_url )}}" height='400px' width='300px' alt="{{ product.name }}">
+                    <img  src="{{ url_for('static', filename='/images/' + product.image_url )}}" height='400px' width='300px' alt="GLH Medium Cucumbers 250G">
                 </div>
                 <div class="product_description"> 
                     <h2>{{ product.name }}</h2>
                     
 
                     <div class="rating"> 
-                        <p>{{ product.rating }} <a href="/product_details"> View details</a>
+                        <p>{{ product.rating }} <a href="/order" > View details</a></p>
                     </div>
 
-                    <p>{{ product.description}}</p>
-                    <div class="price">£{{ product.price }} </div>
+                    <p>{{ product.description }}</p>
+                    <div class="price">{{ product.price }}</div>
                     <a class="add_to_cart" href="/order" >Order Now</a>
                 </div>
             </div>
         </td>
 
     {% endfor %} 
-   
-   
-    </tbody>
 </table>    
  </div>
 
