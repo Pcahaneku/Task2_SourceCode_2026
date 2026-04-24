@@ -4,29 +4,8 @@
 
 {% block content %}
 
-<h1> Welcome {fullname} </h1>
 
-<h2>Admin Dashboard</h2>
-
-<h3>Registered Users</h3>
-
-<table>
-
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-    </tr>
-
-{% for user in users %}
-
-    <tr>
-        <td>{{ user.id }}</td>
-        <td>{{ user.fullname }}</td>
-        <td>{{ user.email }}</td>
-    </tr>
-
-{% endfor %}
+    <h1 class="dashboard"> Dashboard </h1>
 
 </table>
 

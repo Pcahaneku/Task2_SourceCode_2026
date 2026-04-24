@@ -33,7 +33,7 @@ Pages extend this file using Jinja template inheritance.
         <a href="{{url_for('products')}}">Products</a>
         <a href="{{url_for('register')}}">Register</a>
         <a href="{{url_for('login')}}">Login</a>
-
+        <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
         <a href="{{ url_for('info') }}">GLH Informations</a>
       {% endif %} 
     </div>
@@ -43,11 +43,7 @@ Pages extend this file using Jinja template inheritance.
             <a href="{{ url_for('order') }}">Orders</a>
             <a href="{{ url_for('account') }}">Your Account</a>
             <a href="{{ url_for('logout') }}">Logout</a>
-
-        {% if session.get('is_admin') %}
-            <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
-
-            {% endif %}
+            
         {% endif %}
     </div>
     

@@ -286,6 +286,24 @@ hr{
 }
 
 
+/* DASHBOARD */
+
+.dashboard{
+     background-image: url('/static/images/dashboard.jpg');
+    background-size:cover;
+    background-position: center;
+    height: 400px;
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    text-align: center;
+
+    color: #ffffff;
+    font-size: xx-large;
+}
+
+
 /*  METHODS, LOCAL PRODUCE, BENEFITS STYLING
     Displayed on the informations page */
 

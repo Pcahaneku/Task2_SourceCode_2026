@@ -56,6 +56,13 @@ with app.app_context():
             db.session.add_all(products)
             db.session.commit()
 
+with app.app_context():
+    db.create_all()
+
+
+
+
+
 #HOMEPAGE ROUTE that renders the homepage.html template and leads to the homepage page. 
 @app.route('/')
 def homepage():
@@ -160,7 +167,7 @@ def login():
 def admin_dashboard():
 
     if 'role' != 'admin':
-      flash ('Access Denied')
+      flash ('Access Denied', 'error')
 
       return render_template('admin_dashboard.html') #If the admin is logged in, it renders the admin_dashboard.html template.
 
